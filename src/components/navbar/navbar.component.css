@@ -1,0 +1,24 @@
+.square-button {
+  border-radius: 0;
+  padding: 80px 16px;
+}
+
+.pink-button {
+  background-color: #F6A6B2;
+  color: black;
+  border: none;
+}
+
+.pink-button:hover {
+  background-color: #F297A1;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

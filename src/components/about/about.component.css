@@ -1,0 +1,27 @@
+.about-us {
+  background-image: url('/assets/contact.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.about-us h2 {
+  margin-bottom: 10px;
+  /* Add spacing between title and content */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about-us p {
+  margin-bottom: 20px;
+  /* Add spacing between paragraphs */
+  font-size: 1.2rem;
+  max-width: 800px;
+  /* Limit width for better readability */
+}

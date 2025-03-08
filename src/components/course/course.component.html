@@ -1,0 +1,44 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span>Courses List</span>
+  @if(userRole=='teacher'){
+  <button mat-raised-button color="accent" (click)="AddCourse()">➕ Add Course</button>
+  }
+</mat-toolbar>
+
+<div class="courses-list">
+  @for(course of courses; track course.id) {
+  <mat-card class="course-card" [class.selected]="selectedCourseId === course.id">
+    <mat-card-header>
+      <mat-card-title>{{ course.title }}</mat-card-title>
+      <mat-card-actions align="end">
+        <button mat-icon-button (click)="viewDetails(course.id)">
+          <mat-icon>{{ selectedCourseId === course.id ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card-header>
+
+    @if(selectedCourseId === course.id) {
+    <div class="course-details">
+      <app-course-details [courseId]="course.id" (lessonDeleted)="onLessonDeleted()"></app-course-details>
+    </div>
+    }
+
+    <mat-card-actions class="action-buttons">
+      <button mat-button color="primary" (click)="joinCourse(course.id)" [disabled]="isJoined(course.id)">
+        <mat-icon>person_add</mat-icon> Join
+      </button>
+      <button mat-button color="warn" (click)="leaveCourse(course.id)" [disabled]="!isJoined(course.id)">
+        <mat-icon>person_remove</mat-icon> Leave
+      </button>
+      @if(userRole=='teacher'){
+      <button mat-icon-button color="primary" (click)="EditCourse(course)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteCourse(course.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      }
+    </mat-card-actions>
+  </mat-card>
+  }
+</div>

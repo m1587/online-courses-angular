@@ -1,0 +1,21 @@
+<form [formGroup]="lessonForm" (ngSubmit)="onSubmit()" class="lesson-form">
+  <mat-card>
+    <mat-card-content>
+      <div formGroupName="lessonDetails">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Title" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Content</mat-label>
+          <input matInput formControlName="content" placeholder="Content" />
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="lessonForm.invalid">Add Lesson</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

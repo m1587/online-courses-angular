@@ -1,0 +1,21 @@
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="course-form">
+  <mat-card>
+    <mat-card-content>
+      <div formGroupName="courseDetails">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Title" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" placeholder="Description" />
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="courseForm.invalid">change Course</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

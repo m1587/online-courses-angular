@@ -1,0 +1,37 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.courses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+    align-items: flex-start;
+    /* מבטיח שכל כרטיס יתחיל מגובהו האמיתי */
+}
+
+.course-card {
+    flex: 1 1 300px;
+    /* כל כרטיס יתפוס לפחות 300px ויגדל לפי הצורך */
+    max-width: 400px;
+    /* ניתן לשנות כדי לשלוט ברוחב המקסימלי */
+    transition: all 0.3s ease-in-out;
+}
+
+.course-card.selected {
+    flex: 1 1 100%;
+    /* כשנבחר, הכרטיס יתפוס 100% מרוחב השורה */
+}
+
+.course-details {
+    display: none;
+    /* מסתיר את הפרטים כברירת מחדל */
+}
+
+.course-card.selected .course-details {
+    display: block;
+    /* מציג את הפרטים רק עבור הכרטיס שנבחר */
+}
