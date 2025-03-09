@@ -25,7 +25,6 @@ import { Router } from '@angular/router';
 export class CourseComponent implements OnInit {
   courses: Course[] = [];
   selectedCourseId?: string;
-  joinedCourses: string[] = [];
   userRole: any;
   constructor(private courseService: CourseService, private authService: AuthService, private router: Router) { }
 
@@ -53,7 +52,6 @@ export class CourseComponent implements OnInit {
     this.courseService.enrollStudent(courseId, userId).subscribe(
       () => {
         alert('Joined course');
-        this.joinedCourses.push(courseId);
       },
       (error) => {
         alert('Error joining course,You have already registered');
@@ -67,7 +65,6 @@ export class CourseComponent implements OnInit {
     this.courseService.unenrollStudent(courseId, userId).subscribe(
       () => {
         alert('Left course');
-        this.joinedCourses = this.joinedCourses.filter(id => id !== courseId);
       },
       (error) => {
         alert('Error leaving course,You have already,You are not registered');
@@ -94,8 +91,5 @@ export class CourseComponent implements OnInit {
   }
   onLessonDeleted() {
     alert("lesson delete")
-  }
-  isJoined(courseId: string): boolean {
-    return this.joinedCourses.includes(courseId);
   }
 }

@@ -24,10 +24,10 @@
     }
 
     <mat-card-actions class="action-buttons">
-      <button mat-button color="primary" (click)="joinCourse(course.id)" [disabled]="isJoined(course.id)">
+      <button mat-button color="primary" (click)="joinCourse(course.id)">
         <mat-icon>person_add</mat-icon> Join
       </button>
-      <button mat-button color="warn" (click)="leaveCourse(course.id)" [disabled]="!isJoined(course.id)">
+      <button mat-button color="warn" (click)="leaveCourse(course.id)">
         <mat-icon>person_remove</mat-icon> Leave
       </button>
       @if(userRole=='teacher'){
